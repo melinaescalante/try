@@ -1,0 +1,15 @@
+name: mi-aplicacion-php
+services:
+  - name: app
+    env:
+      - name: PHP_VERSION
+        value: "8.2"  # Cambia a la versión de PHP que necesitas
+    ports:
+      - port: 8080
+        http: true
+    build:
+      args:
+        - name: PHP_EXTENSIONS
+          value: "sodium"  # Asegúrate de que Sodium esté instalado
+    run:
+      command: php -S 0.0.0.0:8080
